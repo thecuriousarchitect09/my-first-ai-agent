@@ -2,101 +2,67 @@
 
 Generate software architecture diagrams from plain English requirements using AI and Mermaid.
 
-![Next.js](https://img.shields.io/badge/Next.js-15-black)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
-![Mermaid](https://img.shields.io/badge/Mermaid-Diagrams-purple)
-![Ollama](https://img.shields.io/badge/Ollama-Local_AI-green)
-
----
-
 ## Overview
 
-AI Architecture Agent converts business or technical requirements into architecture diagrams.
+AI Architecture Agent converts requirements into architecture diagrams using:
 
-Example:
-
-### Input
-
-Build an e-commerce platform with:
-
-* Authentication
-* Product Catalog
-* Inventory Management
-* Payments
-* Notifications
-
-### Output
-
-```mermaid
-graph TD
-User --> Frontend
-Frontend --> APIGateway
-
-APIGateway --> AuthService
-APIGateway --> ProductService
-APIGateway --> PaymentService
-
-AuthService --> UserDB
-ProductService --> ProductDB
-PaymentService --> PaymentGateway
-```
-
-Rendered directly in the browser using Mermaid.
-
----
-
-## Features
-
-* AI-powered architecture generation
-* Mermaid diagram rendering
-* Modern Dracula dark theme
-* Next.js App Router
+* Next.js
 * TypeScript
-* Ollama integration ready
-* Vercel deployment ready
+* Mermaid
+* Ollama
+* Local AI Models (Llama/Qwen)
 
 ---
 
-## Tech Stack
+## Prerequisites
 
-| Technology       | Purpose                 |
-| ---------------- | ----------------------- |
-| Next.js 15       | Frontend & API          |
-| TypeScript       | Type Safety             |
-| Mermaid          | Diagram Rendering       |
-| Ollama           | Local AI Models         |
-| Llama 3 / Qwen 3 | Architecture Generation |
-| Vercel           | Hosting                 |
+Before starting this project, complete the following setup guides from the AI Engineering Playbook repository:
+
+### 1. Install Node.js
+
+Follow:
+
+https://github.com/thecuriousarchitect09/ai-engineering-playbook/blob/main/install-nodejs-homebrew.md
 
 ---
 
-## Project Structure
+### 2. Install Ollama
 
-```text
-app/
-├── api/
-│   └── generate/
-│       └── route.ts
-│
-├── components/
-│   └── MermaidDiagram.tsx
-│
-├── globals.css
-├── layout.tsx
-└── page.tsx
+Follow:
+
+https://github.com/thecuriousarchitect09/ai-engineering-playbook/blob/main/Ollama%20Installation%20Guide%20(macOS).md
+
+After installation, verify:
+
+```bash
+ollama --version
+```
+
+Pull a model:
+
+```bash
+ollama pull qwen3:8b
+```
+
+or
+
+```bash
+ollama pull llama3.1:8b
+```
+
+Start Ollama:
+
+```bash
+ollama serve
 ```
 
 ---
 
-## Getting Started
+### 3. Learn Next.js Basics
 
-### Prerequisites
+If you're new to Next.js, review:
 
-Install:
-
-* Node.js 20+
-* npm
-* Ollama 
+https://github.com/thecuriousarchitect09/ai-engineering-playbook/blob/main/nextjs-getting-started.md
 
 ---
 
@@ -118,7 +84,7 @@ npm install mermaid
 
 ---
 
-## Run Locally
+## Start Development Server
 
 ```bash
 npm run dev
@@ -132,78 +98,96 @@ http://localhost:3000
 
 ---
 
-## Using Ollama
+## Project Structure
 
-Install Ollama.
-
-Start Ollama:
-
-```bash
-ollama serve
-```
-
-Pull a model:
-
-```bash
-ollama pull qwen3:8b
-```
-
-or
-
-```bash
-ollama pull llama3.1:8b
+```text
+app/
+├── api/
+│   └── generate/
+│       └── route.ts
+│
+├── components/
+│   └── MermaidDiagram.tsx
+│
+├── globals.css
+├── layout.tsx
+└── page.tsx
 ```
 
 ---
 
-## Example Prompt
+## Example Requirement
 
 ```text
-Build a hospital management system.
+Build an ecommerce platform.
 
-Requirements:
-
-- Patient Management
-- Doctor Portal
-- Billing
-- Appointment Scheduling
+Features:
+- Authentication
+- Product Catalog
+- Inventory
+- Payments
 - Notifications
 ```
 
 ---
 
-## Future Enhancements
+## Example Diagram
+
+```mermaid
+graph TD
+User --> Frontend
+Frontend --> APIGateway
+
+APIGateway --> AuthService
+APIGateway --> ProductService
+APIGateway --> PaymentService
+
+AuthService --> UserDB
+ProductService --> ProductDB
+PaymentService --> PaymentGateway
+```
+
+---
+
+## Roadmap
 
 ### Phase 1
 
-* Requirement → Mermaid Diagram
+Requirement → Mermaid Diagram
 
 ### Phase 2
 
-* Requirement → Architecture Review
+Requirement → Architecture Review
 
 ### Phase 3
 
-* Requirement → Technology Recommendations
+Requirement → Technology Recommendations
 
 ### Phase 4
 
-* Requirement → Draw.io Export
+Requirement → Draw.io Export
 
 ### Phase 5
 
-* Requirement → C4 Model Generation
+Requirement → Multi-Agent Architecture Copilot
 
-### Phase 6
+---
 
-* Multi-Agent Architecture Copilot
+## Related Repositories
+
+### AI Engineering Playbook
+
+https://github.com/thecuriousarchitect09/ai-engineering-playbook
+
+Contains:
+
+* Node.js Installation Guide
+* Ollama Installation Guide
+* Next.js Getting Started Guide
+* AI Engineering Learning Materials
 
 ---
 
 ## License
 
-MIT License
-
----
-
-Built for learning Agentic AI, Software Architecture, and AI-powered Diagram Generation.
+MIT
