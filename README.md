@@ -1,37 +1,209 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Architecture Agent
+
+Generate software architecture diagrams from plain English requirements using AI and Mermaid.
+
+![Next.js](https://img.shields.io/badge/Next.js-15-black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
+![Mermaid](https://img.shields.io/badge/Mermaid-Diagrams-purple)
+![Ollama](https://img.shields.io/badge/Ollama-Local_AI-green)
+
+---
+
+## Overview
+
+AI Architecture Agent converts business or technical requirements into architecture diagrams.
+
+Example:
+
+### Input
+
+Build an e-commerce platform with:
+
+* Authentication
+* Product Catalog
+* Inventory Management
+* Payments
+* Notifications
+
+### Output
+
+```mermaid
+graph TD
+User --> Frontend
+Frontend --> APIGateway
+
+APIGateway --> AuthService
+APIGateway --> ProductService
+APIGateway --> PaymentService
+
+AuthService --> UserDB
+ProductService --> ProductDB
+PaymentService --> PaymentGateway
+```
+
+Rendered directly in the browser using Mermaid.
+
+---
+
+## Features
+
+* AI-powered architecture generation
+* Mermaid diagram rendering
+* Modern Dracula dark theme
+* Next.js App Router
+* TypeScript
+* Ollama integration ready
+* Vercel deployment ready
+
+---
+
+## Tech Stack
+
+| Technology       | Purpose                 |
+| ---------------- | ----------------------- |
+| Next.js 15       | Frontend & API          |
+| TypeScript       | Type Safety             |
+| Mermaid          | Diagram Rendering       |
+| Ollama           | Local AI Models         |
+| Llama 3 / Qwen 3 | Architecture Generation |
+| Vercel           | Hosting                 |
+
+---
+
+## Project Structure
+
+```text
+app/
+├── api/
+│   └── generate/
+│       └── route.ts
+│
+├── components/
+│   └── MermaidDiagram.tsx
+│
+├── globals.css
+├── layout.tsx
+└── page.tsx
+```
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+Install:
+
+* Node.js 20+
+* npm
+* Ollama 
+
+---
+
+## Create Project
+
+```bash
+npx create-next-app@latest ai-architecture-agent --typescript --app
+
+cd ai-architecture-agent
+```
+
+---
+
+## Install Dependencies
+
+```bash
+npm install mermaid
+```
+
+---
+
+## Run Locally
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Using Ollama
 
-To learn more about Next.js, take a look at the following resources:
+Install Ollama.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Start Ollama:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+ollama serve
+```
 
-## Deploy on Vercel
+Pull a model:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+ollama pull qwen3:8b
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# my-first-ai-agent
+or
+
+```bash
+ollama pull llama3.1:8b
+```
+
+---
+
+## Example Prompt
+
+```text
+Build a hospital management system.
+
+Requirements:
+
+- Patient Management
+- Doctor Portal
+- Billing
+- Appointment Scheduling
+- Notifications
+```
+
+---
+
+## Future Enhancements
+
+### Phase 1
+
+* Requirement → Mermaid Diagram
+
+### Phase 2
+
+* Requirement → Architecture Review
+
+### Phase 3
+
+* Requirement → Technology Recommendations
+
+### Phase 4
+
+* Requirement → Draw.io Export
+
+### Phase 5
+
+* Requirement → C4 Model Generation
+
+### Phase 6
+
+* Multi-Agent Architecture Copilot
+
+---
+
+## License
+
+MIT License
+
+---
+
+Built for learning Agentic AI, Software Architecture, and AI-powered Diagram Generation.
